@@ -1,0 +1,14 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-radio-button {
+    margin: 5px 0;
+  }
+
+  

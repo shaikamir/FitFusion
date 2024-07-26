@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+@include mat.core();
+
+// Define custom palettes
+$black-primary: mat.define-palette(mat.$grey-palette, 900);
+$amber-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$red-warn: mat.define-palette(mat.$red-palette, 500);
+
+// Define the custom theme
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $black-primary,
+      accent: $amber-accent,
+      warn: $red-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+// Apply the custom theme to all components
+@include mat.all-component-themes($custom-theme);
+
+.mat-radio-button .mat-radio-outer-circle {
+  border-color: mat.get-color-from-palette($black-primary) !important;
+}
+.mat-radio-button .mat-radio-inner-circle {
+  background-color: mat.get-color-from-palette($black-primary) !important;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

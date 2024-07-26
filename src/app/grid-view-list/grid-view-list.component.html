@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <div *ngIf="blnShowMsg" class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>No records found!</strong>
+      </div>
+    <table *ngIf="!blnShowMsg" class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile No.</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Height</th>
+            <th scope="col">BMI</th>
+            <th scope="col">Package</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let eachList of registeredList; let i = index">
+          <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{eachList.firstName}}</td>
+            <td>{{eachList.lastName}}</td>
+            <td>{{eachList.mobile}}</td>
+            <td>{{eachList.gender}}</td>
+            <td>{{eachList.weight}}</td>
+            <td>{{eachList.height}}</td>
+            <td>{{eachList.bmi}}</td>
+            <td>{{eachList.package}}</td>
+            <td>{{eachList.enquiryDate}}</td>
+            <td><i class="fa fa-trash-o" style="font-size:24px" (click)="fnDelete(eachList)"></i></td>
+            <!-- <td><button mat-flat-button color="accent" (click)="fnViewDetails(eachList)">View Details</button></td> -->
+             <td><i class="fa fa-eye" style="font-size:24px;" (click)="fnViewDetails(eachList)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-container *ngIf="blnShowPopup">
+      <app-user-details (closeModal)="blnHidePopup($event)" [dataFrmlist]="dataToModalPopup"></app-user-details>
+      </ng-container>
+</div>  

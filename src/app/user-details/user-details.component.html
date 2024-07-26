@@ -1,0 +1,49 @@
+<div class="modal modal-lg" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" aria-label="Close" (click)="closeDialog()"></button>
+        </div>
+        <div class="modal-body d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex flex-column align-items-center mb-3">
+              <img src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png" alt="profile-icon" style="width: 30px; height: 30px;">
+              <div class="d-flex flex-column ml-2 mb-2">
+                <h1 class="h5 mb-0">{{dataFrmlist.firstName}} {{dataFrmlist.lastName}}</h1>
+              </div>
+              <div class="w-100">
+                <div class="d-flex mb-2">
+                  <h4 class="mr-2"><span style="font-weight: bold;">Email: </span></h4>
+                  <h4> {{dataFrmlist.email}}</h4>
+                </div>
+                <div class="d-flex mb-2">
+                  <h4 class="mr-2"><span style="font-weight: bold;">Mobile No.: </span></h4>
+                  <h4> {{dataFrmlist.mobile}}</h4>
+                </div>
+                <div class="d-flex mb-2">
+                  <h4 class="mr-2"><span style="font-weight: bold;">Weight: </span></h4>
+                  <h4> {{dataFrmlist.weight}}</h4>
+                </div>
+                <div class="d-flex mb-2">
+                  <h4 class="mr-2"><span style="font-weight: bold;">Package: </span></h4>
+                  <h4> {{dataFrmlist.package}}</h4>
+                </div>
+                <div class="d-flex mb-2">
+                  <h4 class="mr-2"><span style="font-weight: bold;">Required Trainer: </span></h4>
+                  <h4> {{dataFrmlist.requireTrainer}}</h4>
+                </div>
+                <div *ngIf="bmiRes != ''" class="d-flex mb-2">
+                    <h4 class="mr-2"><span style="font-weight: bold;">BMI Result: </span></h4>
+                    <h4> {{bmiRes}}</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeDialog()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
